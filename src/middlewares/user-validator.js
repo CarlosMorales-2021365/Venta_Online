@@ -40,3 +40,11 @@ export const updatePasswordValidator = [
     validarCampos,
     handleErrors
 ];
+
+export const updateUserValidator = [
+    validateJWT,
+    param("uid", "No es un ID válido").isMongoId(),
+    param("uid").custom(userExists),
+    validarCampos,
+    handleErrors
+];
