@@ -13,3 +13,20 @@ export const usernameExists = async (username = "") => {
         throw new Error(`The username ${username} is already registered`)
     }
 }
+
+export const userExists = async (uid = " ") => {
+    const existe = await User.findById(uid)
+    if(!existe){
+        throw new Error("No existe el usuario con el ID proporcionado")
+    }
+}
+
+export const isClient = async (uid = " ") => {
+    const existe = await User.findById(uid)
+    if(!existe){
+        throw new Error("No existe el usuario con el ID proporcionado")
+    }
+    if(User.role !== "CLIENT_ROLE"){
+        throw new Error("Solo se pueden editar un usuario con un rol de cliente")
+    }
+}
