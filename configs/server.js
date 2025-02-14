@@ -5,6 +5,8 @@ import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
+import apiLimiter from "../src/middlewares/rate-limit-validator.js"
+import authRoutes from "../src/auth/auth.routes.js"
 
 const middelwares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -12,6 +14,11 @@ const middelwares = (app) => {
     app.use(cors())
     app.use(helmet())
     app.use(morgan("dev"))
+    app.use(apiLimiter)
+}
+
+const routes = (app) => {
+    app.use("/ventaOnline/v1/auth", authRoutes)
 }
 
 const conectarDB = async () => {
@@ -28,6 +35,7 @@ export const initServer= () => {
     try{
         middelwares(app)
         conectarDB()
+        routes(app)
         app.listen(process.env.PORT)
         console.log(`server running on port ${process.env.PORT}`)
     }catch(err){
