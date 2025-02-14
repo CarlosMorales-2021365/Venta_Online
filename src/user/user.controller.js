@@ -59,3 +59,70 @@ export const updateUser = async (req, res) => {
         });
     }
 }
+
+export const updateProfilePicture = async(req,res) =>{
+    try{
+        const { uid } = req.params
+        let newprofilePicture = req.file ? req.file.filename : null
+
+        if(!newprofilePicture){
+            return res.status(400).json({
+                success: false,
+                message:"No se proporciono ninguna foto "
+            })
+        }
+
+        const user = await User.findById(uid)
+
+        if(user.profilePicture){
+            const oldProfilePicture = join(__dirname, "../../public/uploads/profile-pictures", user.profilePicture)
+
+            await fs.unlink(oldProfilePicture)
+        }
+
+        user.profilePicture = newprofilePicture
+        await user.save()
+
+        return res.status(200).json({
+            succes:true,
+            message: "Foto Actualizada",
+            user
+        })
+        }catch(err){
+        res.status(500).json({
+            success: false,
+            msg: 'Error al actualizar la foto',
+            error: err.message
+        });
+    }
+}
+
+export const changeRole = async (req, res) => {
+    try{
+        const { uid } = req.params
+
+        const user = await User.findById(uid);
+
+        if(!user){
+            res.status(404).json({
+                succes: false,
+                msg: "Usuario no encontrado"
+            });
+        }
+
+        user.role = "ADMIN_ROLE";
+        await user.save();
+
+        return res.status(200).json({
+            succes: true,
+            message: "El usuario ahora es administrador",
+            user
+        })
+    }catch(err){
+        res.status(500).json({
+            success: false,
+            msg: "Error al cambiar el role",
+            error: err.message
+          }); 
+    }
+}

@@ -4,6 +4,7 @@ import { validarCampos } from "./validate-fields.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors} from "./handle-errors.js";
 import { validateJWT } from "./validate-jwt.js";
+import { hasRoles } from "./validate-roles.js";
 
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
@@ -43,6 +44,24 @@ export const updatePasswordValidator = [
 
 export const updateUserValidator = [
     validateJWT,
+    param("uid", "No es un ID válido").isMongoId(),
+    param("uid").custom(userExists),
+    validarCampos,
+    handleErrors
+];
+
+export const updateProfilePictureValidator = [
+    validateJWT,
+    param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
+    param("uid").custom(userExists),
+    validarCampos,
+    deleteFileOnError,
+    handleErrors
+];
+
+export const changeUserRoleValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
     param("uid", "No es un ID válido").isMongoId(),
     param("uid").custom(userExists),
     validarCampos,
