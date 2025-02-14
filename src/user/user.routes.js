@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { updatePassword, updateUser, updateProfilePicture, changeRole} from "./user.controller.js";
-import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, changeUserRoleValidator } from "../middlewares/user-validator.js";
+import { updatePassword, updateUser, updateProfilePicture, changeRole, deleteUser} from "./user.controller.js";
+import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, changeUserRoleValidator, deleteClientValidator, deleteAdminValidator } from "../middlewares/user-validator.js";
 import { uploadProfilePicture } from "../middlewares/multer-uploads.js";
 
 const router = Router()
@@ -14,6 +14,8 @@ updateProfilePictureValidator, updateProfilePicture)
 
 router.patch("/changeRole/:uid", changeUserRoleValidator,changeRole)
 
+router.delete("/deleteUser/:uid", deleteClientValidator, deleteUser)
 
+router.delete("/deleteUserAdmin/:uid", deleteAdminValidator, deleteUser)
 
 export default router
