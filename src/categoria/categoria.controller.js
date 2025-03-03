@@ -69,3 +69,36 @@ export const updateCategoria = async (req, res) => {
         }); 
     }
 }
+
+export const deleteCategoria = async (req, res) => {
+    try{
+        const { id } = req.params;
+
+        const generalCategoria = await Categoria.findOne({ name: "General" });
+
+        if (!generalCategoria) {
+            return res.status(404).json({
+                success: false,
+                message: 'No se encontró la categoría "General"'
+            });
+        }
+
+ /*       await Publicaciones.updateMany(
+            { categoria: id }, 
+            { $set: { categoria: generalCategoria._id } } 
+        );
+*/
+        await Categoria.findByIdAndUpdate(id, { status: false});
+
+        res.status(200).json({
+            success: true,
+            message: 'Categoria eliminada'
+        });
+    }catch(error){
+        res.status(500).json({
+            success: false,
+            message: 'Error al eliminar la categoria',
+            error
+        }); 
+    }
+}
