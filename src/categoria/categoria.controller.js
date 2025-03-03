@@ -2,6 +2,7 @@
 
 import Categoria from "./categoria.model.js"
 
+
 export const createCategoria = async (req, res) => {
     try{
         const data = req.body;
@@ -19,4 +20,31 @@ export const createCategoria = async (req, res) => {
             error
         });
     }
+}
+
+export const getCategorias = async (req, res) =>{
+    try{
+        const { limite = 10, desde = 0} = req.query
+        const query = { status: true }
+        
+        const [ total, categorias ] = await Promise.all([
+            Categoria.countDocuments(query),
+            Categoria.find(query)
+                     .skip(Number(desde))
+                     .limit(Number(limite))
+        ])
+
+        return res.status(200).json({
+            success: true,
+            total,
+            categorias
+        })
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al obtener las categorias",
+            error: err.message
+        })
+    }
+    
 }

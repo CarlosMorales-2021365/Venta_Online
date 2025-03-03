@@ -11,3 +11,10 @@ export const createCategoriaValidator = [
     validarCampos,
     handleErrors
 ]
+
+export const listarCategoriaValidator = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE'),
+    validarCampos,
+    handleErrors
+]

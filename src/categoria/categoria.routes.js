@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { createCategoria } from "./categoria.controller.js";
-import { createCategoriaValidator } from "../middlewares/categorias-validators.js";
+import { createCategoria, getCategorias } from "./categoria.controller.js";
+import { createCategoriaValidator, listarCategoriaValidator } from "../middlewares/categorias-validators.js";
 
 const router = Router();
 
 router.post("/createCategoria", createCategoriaValidator, createCategoria);
+
+router.get("/", listarCategoriaValidator, getCategorias)
 
 export default router;
