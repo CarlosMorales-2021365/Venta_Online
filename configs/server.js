@@ -6,6 +6,8 @@ import helmet from "helmet"
 import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
+import { hash } from "argon2"
+import User from "../src/user/user.model.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 
@@ -32,12 +34,39 @@ const conectarDB = async () => {
     }
 }
 
+const crearAdministrador = async () =>{
+    try{
+        const adminExist = await User.findOne({role: "ADMIN_ROLE"});
+
+        if(!adminExist){
+            const encryptedPassword = await hash("Abc123**")
+
+            const admin = new User({
+                name: "Admin",
+                surname: "Admin",
+                username: "admin",
+                email: "Admin@gmail.com",
+                password: encryptedPassword,
+                phone: 12345678,
+                role: "ADMIN_ROLE"
+            });
+
+            await admin.save();
+            console.log("Administrador inicial creado exitosamente")
+        }
+
+    }catch(err){
+        console.log (`Error al crear al dminstrador inicial ${err}`)
+    }
+}
+
 export const initServer= () => {
     const app = express()
     try{
         middelwares(app)
         conectarDB()
         routes(app)
+        crearAdministrador()
         app.listen(process.env.PORT)
         console.log(`server running on port ${process.env.PORT}`)
     }catch(err){
