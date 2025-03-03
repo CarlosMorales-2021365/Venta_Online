@@ -157,7 +157,6 @@ export const changeRole = async (req, res) => {
 export const deleteUser = async (req, res) => {
     try{
         const { uid } = req.params
-
             
         const user = await User.findByIdAndUpdate(uid, {status: false}, {new: true})
 

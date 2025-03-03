@@ -8,8 +8,10 @@ import { dbConnection } from "./mongo.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import { hash } from "argon2"
 import User from "../src/user/user.model.js"
+import Categoria from "../src/categoria/categoria.model.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
+import categoriaModel from "../src/categoria/categoria.model.js"
 
 const middelwares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -60,6 +62,23 @@ const crearAdministrador = async () =>{
     }
 }
 
+const crearCategoriaInicial = async ()=>{
+    try{
+        const categoriaExist = await Categoria.findOne({status: true});
+
+        if(!categoriaExist){
+
+            const categoria = new Categoria({
+                name: "General"
+            });
+            await categoria.save();
+            console.log("Categoria creada exitosamente")
+        }
+    }catch(err){
+        console.log(`Error al crear la categoria ${err}`)
+    }
+}
+
 export const initServer= () => {
     const app = express()
     try{
@@ -67,6 +86,7 @@ export const initServer= () => {
         conectarDB()
         routes(app)
         crearAdministrador()
+        crearCategoriaInicial()
         app.listen(process.env.PORT)
         console.log(`server running on port ${process.env.PORT}`)
     }catch(err){
