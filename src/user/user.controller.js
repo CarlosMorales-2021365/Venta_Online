@@ -157,7 +157,17 @@ export const changeRole = async (req, res) => {
 export const deleteUser = async (req, res) => {
     try{
         const { uid } = req.params
-            
+        const { confirmacion } = req.body;
+
+        const confirmar = "Si" 
+
+        if(confirmacion !== confirmar){
+           return res.status(400).json({
+                succes: false,
+                message: "Validacion incorrecta no se borrara la cuenta", 
+            })
+        }
+
         const user = await User.findByIdAndUpdate(uid, {status: false}, {new: true})
 
         return res.status(200).json({
