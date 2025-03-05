@@ -12,6 +12,7 @@ import Categoria from "../src/categoria/categoria.model.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 import categoriasRoutes from "../src/categoria/categoria.routes.js"
+import productoRoutes from "../src/productos/productos.routes.js"
 
 const middelwares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -26,6 +27,7 @@ const routes = (app) => {
     app.use("/ventaOnline/v1/auth", authRoutes)
     app.use("/ventaOnline/v1/user", userRoutes)
     app.use("/ventaOnline/v1/categorias", categoriasRoutes)
+    app.use("/ventaOnline/v1/productos", productoRoutes)
 }
 
 const conectarDB = async () => {
