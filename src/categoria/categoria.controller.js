@@ -1,6 +1,7 @@
 'use strict';
 
 import Categoria from "./categoria.model.js"
+import Productos from "../productos/producos.model.js"
 
 
 export const createCategoria = async (req, res) => {
@@ -83,11 +84,11 @@ export const deleteCategoria = async (req, res) => {
             });
         }
 
- /*       await Publicaciones.updateMany(
+        await Productos.updateMany(
             { categoria: id }, 
             { $set: { categoria: generalCategoria._id } } 
         );
-*/
+
         await Categoria.findByIdAndUpdate(id, { status: false});
 
         res.status(200).json({
