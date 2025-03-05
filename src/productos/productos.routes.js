@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { createProductos } from "./productos.controller.js";
-import { createProductosValidator } from "../middlewares/productos-validators.js";
+import { createProductos, getProductosById } from "./productos.controller.js";
+import { createProductosValidator, getProductoByIdValidator } from "../middlewares/productos-validators.js";
 
 const router = Router();
 
 router.post("/createProductos", createProductosValidator, createProductos);
+
+router.get("/findProducto/:id", getProductoByIdValidator, getProductosById);
 
 export default router;

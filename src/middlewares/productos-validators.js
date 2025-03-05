@@ -13,4 +13,13 @@ export const createProductosValidator = [
     body("precio").notEmpty().withMessage("El precio es requerido"),
     validarCampos,
     handleErrors
-]
+];
+
+export const getProductoByIdValidator = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE'),
+    param("id").isMongoId().withMessage("No es un ID válido"),
+    param("id").custom(productoExists),
+    validarCampos,
+    handleErrors
+];
