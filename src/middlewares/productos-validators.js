@@ -10,6 +10,7 @@ export const createProductosValidator = [
     hasRoles('ADMIN_ROLE'),
     body("name").notEmpty().withMessage("El nombre es requerido"),
     body("categoria").notEmpty().withMessage("La categoria es requerida"),
+    body("precio").notEmpty().withMessage("El precio es requerido"),
     validarCampos,
     handleErrors
 ]

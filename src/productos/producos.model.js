@@ -10,6 +10,10 @@ const productosSchema = new Schema({
         ref: "Categoria",
         required: true
     },
+    precio:{
+        type: String,
+        required: true
+    },
     inventario:{
         type: String,
     },

@@ -3,7 +3,7 @@ import Categoria from "../categoria/categoria.model.js"
 
 export const createProductos = async (req, res) =>{
     try{
-        const { categoria, name, inventario, stock} = req.body;
+        const { categoria, name, inventario, stock, precio} = req.body;
         
         const categoriaRecord = await Categoria.findOne({ _id: categoria });
         if(!categoriaRecord){
@@ -14,7 +14,7 @@ export const createProductos = async (req, res) =>{
             });
         }
 
-        const productos = new Productos({categoria, name, inventario, stock});
+        const productos = new Productos({categoria, name, inventario, stock, precio});
         await productos.save();
 
         const productosdatosCategoria = await Productos.findById(productos._id)
