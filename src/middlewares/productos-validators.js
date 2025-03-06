@@ -39,3 +39,12 @@ export const deleteProductoValidator = [
     validarCampos,
     handleErrors
 ];
+
+export const updateProductoValidator = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE'),
+    param("id").isMongoId().withMessage("No es un ID válido"),
+    param("id").custom(productoExists),
+    validarCampos,
+    handleErrors
+];
