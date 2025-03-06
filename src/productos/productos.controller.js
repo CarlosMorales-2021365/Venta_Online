@@ -154,3 +154,28 @@ export const updateProductoEspecifico = async (req, res) =>{
         })
     }
 }
+
+export const getProductosByName = async (req, res) => {
+    try{
+      const { nombre } = req.params;
+      const producto = await Productos.find({ name: { $regex: nombre, $options: 'i' } });
+      
+      if (producto.length === 0) {
+        return res.status(404).json({
+            success: false,
+            message: "No se encontraron productos con ese nombre"
+        });
+    }
+    
+      return res.status(200).json({
+        success: true,
+        producto
+      })
+    }catch{
+        return res.status(500).json({
+            success: false,
+            message: "Error al obtener el producto",
+            error: err.message
+        })
+    }
+}

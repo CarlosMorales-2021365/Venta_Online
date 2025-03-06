@@ -57,3 +57,9 @@ export const updateProductoEspecificoValidator = [
     validarCampos,
     handleErrors
 ];
+
+export const getProductoByNameValidator = [
+    param("nombre").notEmpty().withMessage("El nombre es requerido"),
+    validarCampos,
+    handleErrors
+];

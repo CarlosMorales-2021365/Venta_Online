@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createProductos, getProductosById, getProductos, deleteProducto, updateProducto, updateProductoEspecifico } from "./productos.controller.js";
-import { createProductosValidator, getProductoByIdValidator, getProductoValidator, deleteProductoValidator, updateProductoValidator, updateProductoEspecificoValidator } from "../middlewares/productos-validators.js";
+import { createProductos, getProductosById, getProductos, deleteProducto, updateProducto, updateProductoEspecifico, getProductosByName } from "./productos.controller.js";
+import { createProductosValidator, getProductoByIdValidator, getProductoValidator, deleteProductoValidator, updateProductoValidator, updateProductoEspecificoValidator, getProductoByNameValidator } from "../middlewares/productos-validators.js";
 
 const router = Router();
 
@@ -15,5 +15,7 @@ router.delete("/deleteProducto/:id", deleteProductoValidator, deleteProducto);
 router.put("/updateProducto/:id", updateProductoValidator, updateProducto);
 
 router.patch("/updateEspecificoProducto/:id", updateProductoEspecificoValidator, updateProductoEspecifico)
+
+router.get("/findProductoByName/:nombre", getProductoByNameValidator, getProductosByName)
 
 export default router;
