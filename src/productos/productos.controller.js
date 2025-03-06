@@ -57,3 +57,29 @@ export const getProductosById = async (req, res) => {
         })
     }
 }
+
+export const getProductos = async (req, res) => {
+    try{
+        const { limite = 10, desde = 0 } = req.query
+        const query = { status: true }
+
+        const [total, productos] = await Promise.all([
+            Productos.countDocuments(query),
+            Productos.find(query)
+                     .skip(Number(desde))
+                     .limit(Number(limite))
+        ])
+
+        return res.status(200).json({
+            success: true,
+            total,
+            productos
+        })
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al obtener los productos",
+            error: err.message
+        })
+    }
+}

@@ -23,3 +23,10 @@ export const getProductoByIdValidator = [
     validarCampos,
     handleErrors
 ];
+
+export const getProductoValidator = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE'),
+    validarCampos,
+    handleErrors
+];
