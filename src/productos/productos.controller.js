@@ -88,7 +88,7 @@ export const deleteProducto = async (req, res) => {
     try{
         const { id } = req.params
 
-        const producto = await Productos.findByIdAndUpdate(id, { status: false}, {new: true})
+        const producto = await Productos.findByIdAndUpdate(id, { status: false, stock: "DESCONTINUADO"}, {new: true})
 
         return res.status(200).json({
             success: true,
@@ -116,6 +116,36 @@ export const updateProducto = async ( req, res) => {
             msg: "Producto actualizado",
             producto
         })
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al actualizar el producto",
+            error: err.message
+        })
+    }
+}
+
+export const updateProductoEspecifico = async (req, res) =>{
+    try{
+        const { id } = req.params;
+        const data = req.body;
+
+        const datos = ['name', 'categoria', 'precio', 'inventario', 'stock', 'status'];
+
+        const updateEspecifico = Object.keys(data).reduce((acc, key) => {
+            if (datos.includes(key)) {
+                acc[key] = data[key];
+            }
+            return acc;
+        }, {});
+
+        const producto = await Productos.findByIdAndUpdate(id, updateEspecifico, { new: true });
+
+        res.status(200).json({
+            success: true,
+            msg: "Producto actualizado",
+            producto
+        });
     }catch(err){
         return res.status(500).json({
             success: false,
