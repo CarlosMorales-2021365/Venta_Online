@@ -83,3 +83,23 @@ export const getProductos = async (req, res) => {
         })
     }
 }
+
+export const deleteProducto = async (req, res) => {
+    try{
+        const { id } = req.params
+
+        const producto = await Productos.findByIdAndUpdate(id, { status: false}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Producto eliminado",
+            producto
+        })
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al elimimnar el producto",
+            error: err.message
+        })
+    }
+}
