@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "67c5c8c3e357aae3d74897b4"
+  },
+  "name": "General",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T15:20:35.176Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T15:20:35.176Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5d812f2346de2b6ff0e9e"
+  },
+  "name": "Electrodomesticos",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T16:25:54.645Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T16:25:54.645Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5d86ef2346de2b6ff0ea1"
+  },
+  "name": "Frutas",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T16:27:26.025Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T16:27:26.025Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5da45889a1c73c0ff0da1"
+  },
+  "name": "Lacteos",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T16:35:17.341Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T16:35:17.341Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5e80071a2afb5b4e88108"
+  },
+  "name": "Verduras",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T17:33:52.851Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T17:50:08.399Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5ecf806c387bc19c43d3e"
+  },
+  "name": "fjijfoi",
+  "status": false,
+  "createdAt": {
+    "$date": "2025-03-03T17:55:04.767Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T17:56:57.486Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c7a35147033df8fba9814f"
+  },
+  "name": "fjijfoi",
+  "status": false,
+  "createdAt": {
+    "$date": "2025-03-05T01:05:21.522Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T01:09:49.381Z"
+  }
+}]

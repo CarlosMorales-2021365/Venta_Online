@@ -1,0 +1,139 @@
+[{
+  "_id": {
+    "$oid": "67c5af2d0262ae15469817d3"
+  },
+  "name": "Carlos Eduardo",
+  "surname": "Garcia Galves",
+  "username": "EGarcia",
+  "email": "Eduardo@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$Giyk+d6dNXuYTySibFJS1Q$2R/vZkZgaRc89t/B8ybi9peoNwCkaRbphl0tMlcdt4Y",
+  "profilePicture": "deadpool-and-wolverine-trailer-san-valentin-1741008684999.jpg",
+  "phone": "55283697",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T13:31:25.176Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:31:25.176Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5af740262ae15469817d7"
+  },
+  "name": "Carlos André",
+  "surname": "Morales Coy",
+  "username": "Cmorales",
+  "email": "moralesc@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$MhiYVLP5Hi/HbncrKFc4aA$/6l/6Mbe5nIoL+Pqeuo2/IB9xsiqYXyU2lN5l32eKRY",
+  "profilePicture": "deadpool-and-wolverine-trailer-san-valentin-1741008756568.jpg",
+  "phone": "55283697",
+  "role": "ADMIN_ROLE",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T13:32:36.697Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:10:35.835Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5b2602dcaf41c1fbc0bca"
+  },
+  "name": "Admin",
+  "surname": "Admin",
+  "username": "admin",
+  "email": "Admin@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$HE1jfq93AfFBD8V0M5bqJA$LcEDRVGXGIC/IkMC25HNH10vozh7wcVoMATRICGvWYc",
+  "phone": "12345678",
+  "role": "ADMIN_ROLE",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T13:45:04.762Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:45:04.762Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5bbddb1beb091a801c29e"
+  },
+  "name": "Diego",
+  "surname": "Lopez",
+  "username": "Dlopez",
+  "email": "Lopez@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$K8G4q/AoP0o5sk9PTKHRtQ$uB1c8YsfEcok8Wxu6eiwJzTLOxBnEfwRsI37BTd2Bhs",
+  "profilePicture": "deadpool-and-wolverine-trailer-san-valentin-1741011933489.jpg",
+  "phone": "55283697",
+  "role": "CLIENT_ROLE",
+  "status": false,
+  "createdAt": {
+    "$date": "2025-03-03T14:25:33.743Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:29:45.444Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5c0f7565b3b651659676c"
+  },
+  "name": "Diego",
+  "surname": "velazques",
+  "username": "DVelazquese",
+  "email": "velazques@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$SluK/hZTgrkoviUZUALoWg$j0pj9pWmvqQB6CnsISgsBtU1fBB2MQXhkZvijfp13yw",
+  "profilePicture": "foto-1741013239161.png",
+  "phone": "55283697",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T14:47:19.379Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:47:19.379Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5ccaa99d01f0417b5e1c6"
+  },
+  "name": "Samuel",
+  "surname": "velazques",
+  "username": "sVelazquese",
+  "email": "Sami@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$OYB8d2XbQ33N1ACwEgjYlQ$sZTrvhBVxN/h9ZNGNx/8sN7CZUq2aZxsOwwfq2+v4VU",
+  "profilePicture": "foto-1741016234634.png",
+  "phone": "55283697",
+  "role": "CLIENT_ROLE",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T15:37:14.745Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T15:37:14.745Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c642c182f270ffd2825e67"
+  },
+  "name": "daniel",
+  "surname": "velazques",
+  "username": "DanyVelazquese",
+  "email": "DaniZZZ@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$erxMJSFLLVFHNh0y7bNjjw$gjyU8jTDqk+9iL/pMza1O1dWyo3BoV/6u8DnexvtBQU",
+  "profilePicture": null,
+  "phone": "55283697",
+  "role": "CLIENT_ROLE",
+  "status": false,
+  "createdAt": {
+    "$date": "2025-03-04T00:01:05.918Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T00:10:17.743Z"
+  }
+}]

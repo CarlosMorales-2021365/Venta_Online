@@ -1,0 +1,59 @@
+[{
+  "_id": {
+    "$oid": "67c8fed5b97ef2df95e40cfc"
+  },
+  "name": "U",
+  "categoria": {
+    "$oid": "67c5d86ef2346de2b6ff0ea1"
+  },
+  "precio": "100.00",
+  "inventario": "37",
+  "stock": "DESCONTINUADO",
+  "status": false,
+  "createdAt": {
+    "$date": "2025-03-06T01:48:05.879Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-06T01:48:30.353Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67cb1f02f2a8e974986e8492"
+  },
+  "name": "Leche",
+  "categoria": {
+    "$oid": "67c5da45889a1c73c0ff0da1"
+  },
+  "precio": "20.00",
+  "inventario": "34",
+  "stock": "EN_STOCK",
+  "status": true,
+  "ventas": "3",
+  "createdAt": {
+    "$date": "2025-03-07T16:29:54.653Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T22:37:22.291Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67cb1f29f2a8e974986e8498"
+  },
+  "name": "Manzana",
+  "categoria": {
+    "$oid": "67c5d86ef2346de2b6ff0ea1"
+  },
+  "precio": "3.00",
+  "inventario": "61",
+  "stock": "EN_STOCK",
+  "status": true,
+  "ventas": "9",
+  "createdAt": {
+    "$date": "2025-03-07T16:30:33.199Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T22:37:22.295Z"
+  }
+}]
