@@ -25,6 +25,10 @@ const productosSchema = new Schema({
     status: {
         type: Boolean,
         default: true
+    },
+    ventas:{
+        type: String,
+        default: 0
     }
 },{
     versionKey: false,
