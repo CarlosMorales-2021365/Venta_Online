@@ -222,3 +222,38 @@ export const getProductosByCategoria = async (req, res) => {
         });
     }
 };
+
+
+export const listarProductosPorVentas = async (req, res) => {
+    try {
+        const limite = 10; 
+
+        const productos = await Productos.find({ status: true })  
+            .sort({ ventas: -1 })  
+            .limit(limite);  
+
+        if (productos.length === 0) {
+            return res.status(404).json({
+                success: false,
+                msg: "No se encontraron productos",
+            });
+        }
+
+        
+        productos.forEach(producto => {
+            producto.ventas = Number(producto.ventas);  
+        });
+
+        return res.status(200).json({
+            success: true,
+            productos,  
+        });
+    } catch (error) {
+        console.error("Error al listar productos:", error);
+        return res.status(500).json({
+            success: false,
+            msg: "Error al listar los productos",
+            error: error.message,
+        });
+    }
+};

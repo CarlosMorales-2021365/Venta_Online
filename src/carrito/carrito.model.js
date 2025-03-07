@@ -10,10 +10,20 @@ const carritoSchema = new Schema({
         type: Boolean,
         default: true
     },
-    productos:[{
-        type: Schema.Types.ObjectId,
-        ref:"Productos"
-    }]
+    productos: {
+        type: [{
+            productoId: {
+                type: Schema.Types.ObjectId,
+                ref: "Productos",
+                required: true
+            },
+            cantidad: {
+                type: String,
+                required: true,
+                minlength: 1
+            }
+        }]
+    }
 },{
     versionKey: false,
     timestamps: true
