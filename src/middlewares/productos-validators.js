@@ -63,3 +63,9 @@ export const getProductoByNameValidator = [
     validarCampos,
     handleErrors
 ];
+
+export const getProductoByCategoriaValidator = [
+    validateJWT,
+    validarCampos,
+    handleErrors
+];

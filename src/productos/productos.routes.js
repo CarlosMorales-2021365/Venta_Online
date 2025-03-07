@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createProductos, getProductosById, getProductos, deleteProducto, updateProducto, updateProductoEspecifico, getProductosByName } from "./productos.controller.js";
-import { createProductosValidator, getProductoByIdValidator, getProductoValidator, deleteProductoValidator, updateProductoValidator, updateProductoEspecificoValidator, getProductoByNameValidator } from "../middlewares/productos-validators.js";
+import { createProductos, getProductosById, getProductos, deleteProducto, updateProducto, updateProductoEspecifico, getProductosByName, getProductosByCategoria } from "./productos.controller.js";
+import { createProductosValidator, getProductoByIdValidator, getProductoValidator, deleteProductoValidator, updateProductoValidator, updateProductoEspecificoValidator, getProductoByNameValidator, getProductoByCategoriaValidator } from "../middlewares/productos-validators.js";
 
 const router = Router();
 
@@ -14,8 +14,10 @@ router.delete("/deleteProducto/:id", deleteProductoValidator, deleteProducto);
 
 router.put("/updateProducto/:id", updateProductoValidator, updateProducto);
 
-router.patch("/updateEspecificoProducto/:id", updateProductoEspecificoValidator, updateProductoEspecifico)
+router.patch("/updateEspecificoProducto/:id", updateProductoEspecificoValidator, updateProductoEspecifico);
 
-router.get("/findProductoByName/:nombre", getProductoByNameValidator, getProductosByName)
+router.get("/findProductoByName/:nombre", getProductoByNameValidator, getProductosByName);
+
+router.get("/getProductosByCategoria", getProductoByCategoriaValidator, getProductosByCategoria);
 
 export default router;

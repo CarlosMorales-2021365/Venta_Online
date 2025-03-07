@@ -179,3 +179,46 @@ export const getProductosByName = async (req, res) => {
         })
     }
 }
+
+export const getProductosByCategoria = async (req, res) => {
+    try {
+        const { categoria } = req.body; 
+        let filtro = {};
+
+        if (categoria !== undefined) {
+            const categoriaEncontrada = await Categoria.findOne({ name: categoria });
+
+            if (!categoriaEncontrada) {
+                return res.status(404).json({
+                    success: false,
+                    message: "Categoría no encontrada",
+                });
+            }
+
+            filtro['categoria'] = categoriaEncontrada._id;
+        }
+
+        const productos = await Productos.find(filtro)
+            .populate('categoria', 'name');  
+
+        if (productos.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No se encontraron productos para esta categoría",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Productos encontrados con éxito",
+            data: productos,
+        });
+ 
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener los productos",
+            error: error.message
+        });
+    }
+};
