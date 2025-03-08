@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67cb1f85f2a8e974986e84a0"
+  },
+  "user": {
+    "$oid": "67c5af2d0262ae15469817d3"
+  },
+  "status": true,
+  "productos": [
+    {
+      "productoId": {
+        "$oid": "67cb1f29f2a8e974986e8498"
+      },
+      "cantidad": "5",
+      "_id": {
+        "$oid": "67cb7903b729baa695661d7e"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-07T16:32:05.055Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T22:54:19.555Z"
+  }
+}]

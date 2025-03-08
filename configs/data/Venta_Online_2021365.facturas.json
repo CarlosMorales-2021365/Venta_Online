@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "67cb8366d300acf9a85475f6"
+  },
+  "compra": {
+    "$oid": "67cb75221b67972266598e52"
+  },
+  "total": 15,
+  "productos": [
+    {
+      "cantidad": "5",
+      "precio": "3",
+      "totalProducto": "15",
+      "_id": {
+        "$oid": "67cb8366d300acf9a85475f7"
+      }
+    }
+  ],
+  "fecha": {
+    "$date": "2025-03-07T23:38:14.808Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-07T23:38:14.813Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T23:38:14.813Z"
+  }
+}]

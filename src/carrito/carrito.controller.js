@@ -53,7 +53,7 @@ export const createCarrito = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            msg: `El carrito fue creado o actualizado exitosamente`,
+            msg: `El carrito fue creado exitosamente`,
             carrito: carritoConDatos
         });
     } catch (error) {
